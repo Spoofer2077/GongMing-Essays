@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>公明 · 文集 — 黄土高原的散文与随笔</title>
+<meta name="description" content="作家公明（六零后，陕北横山人，教育工作者）的个人文集主页，收录散文、随笔一百余篇，长期发表于公众号「公明随笔」。" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* 麻纸 / 黄土 / 朱砂 */
+  --paper:#efe6d2;
+  --paper-2:#e6dabd;
+  --paper-3:#d9c9a3;
+  --ink:#231a12;
+  --ink-soft:#3d2f22;
+  --ink-mute:#7a6850;
+  --rule:#bfa982;
+  --vermilion:#b6322a;
+  --vermilion-deep:#8a2620;
+  --ochre:#a3631e;        /* 赭石/黄土 */
+  --moss:#5a6a3a;         /* 山草色（少量) */
+  --serif-cn:"Noto Serif SC", "Songti SC", "STSong", serif;
+  --serif-en:"EB Garamond", "Times New Roman", serif;
+  --brush:"Ma Shan Zheng", var(--serif-cn);
+  --slab:"ZCOOL QingKe HuangYou", var(--serif-cn);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif-cn);
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  background-image:
+    radial-gradient(1100px 500px at 85% -10%, rgba(182,50,42,.06), transparent 60%),
+    radial-gradient(900px 500px at -5% 20%, rgba(163,99,30,.10), transparent 55%),
+    radial-gradient(800px 500px at 50% 100%, rgba(35,26,18,.08), transparent 60%);
+}
+
+/* ---------- Grain（麻纸纹理） ---------- */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  opacity:.5;
+  mix-blend-mode:multiply;
+  z-index:1;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14  0 0 0 0 0.10  0 0 0 0 0.06  0 0 0 0.10 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* 横向"麻纤维"竖纹 */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:.18;
+  mix-blend-mode:multiply;
+  background-image:repeating-linear-gradient(90deg, transparent 0 3px, rgba(122,104,80,.18) 3px 4px);
+}
+
+/* ---------- Layout ---------- */
+.shell{
+  position:relative;
+  z-index:2;
+  max-width:1440px;
+  margin:0 auto;
+  padding:32px 56px;
+}
+@media (max-width: 760px){ .shell{ padding:20px 22px } }
+
+/* ---------- Top Bar ---------- */
+.topbar{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:24px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+}
+.topbar .meta{font-family:var(--serif-en); font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute)}
+.topbar .meta.right{text-align:right}
+.brandmark{
+  font-family:var(--brush);
+  font-size:30px;
+  letter-spacing:.4em;
+  color:var(--ink);
+  padding:6px 18px;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+
+/* ---------- Nav ---------- */
+nav.primary{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:22px 0 28px;
+  border-bottom:2px solid var(--ink);
+  margin-bottom:60px;
+  flex-wrap:wrap;
+  gap:16px;
+}
+nav.primary ul{
+  display:flex;
+  gap:34px;
+  list-style:none;
+  flex-wrap:wrap;
+}
+nav.primary a{
+  color:var(--ink);
+  text-decoration:none;
+  font-size:15px;
+  letter-spacing:.16em;
+  position:relative;
+  padding-bottom:4px;
+}
+nav.primary a::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:-2px;
+  height:1px;background:var(--vermilion);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+nav.primary a:hover::after{transform:scaleX(1)}
+nav.primary .num{font-family:var(--serif-en); font-style:italic; color:var(--ink-mute); margin-right:6px; font-size:12px}
+.search-pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 14px; border:1px solid var(--ink); border-radius:999px;
+  font-size:13px; letter-spacing:.1em; color:var(--ink); cursor:pointer;
+  background:transparent;
+  font-family:inherit;
+}
+.search-pill:hover{background:var(--ink); color:var(--paper)}
+
+/* ---------- Hero ---------- */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr minmax(auto, 980px) 1fr;
+  align-items:end;
+  gap:32px;
+  min-height:78vh;
+  padding:40px 0 80px;
+  position:relative;
+}
+.hero .side-l{
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  font-size:14px;
+  letter-spacing:.6em;
+  color:var(--ink-mute);
+  align-self:start;
+  padding-top:12px;
+}
+.hero .side-r{
+  text-align:right;
+  align-self:start;
+  padding-top:12px;
+  font-family:var(--serif-en);
+  font-size:13px;
+  letter-spacing:.16em;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+}
+.hero .side-r b{display:block; color:var(--ink); font-weight:500; font-size:15px; margin-top:6px; font-family:var(--serif-cn); letter-spacing:.08em}
+
+.hero h1{
+  font-family:var(--serif-cn);
+  font-weight:300;
+  font-size:clamp(56px, 11vw, 168px);
+  line-height:.92;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.hero h1 .accent{
+  font-family:var(--brush);
+  color:var(--vermilion);
+  font-weight:400;
+  font-size:.85em;
+  margin:0 .04em;
+}
+.hero h1 em{
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-weight:400;
+  font-size:.42em;
+  color:var(--ink-mute);
+  display:block;
+  letter-spacing:.04em;
+  margin-top:18px;
+}
+.hero .lead{
+  margin-top:48px;
+  max-width:560px;
+  font-size:18px;
+  line-height:1.95;
+  color:var(--ink-soft);
+  text-indent:2em;
+}
+
+/* 印章 */
+.stamp{
+  position:absolute;
+  right:6%;
+  top:8%;
+  width:108px;height:108px;
+  border:3px solid var(--vermilion);
+  display:grid;place-items:center;
+  font-family:var(--brush);
+  color:var(--vermilion);
+  font-size:40px;
+  letter-spacing:.05em;
+  transform:rotate(-6deg);
+  background:rgba(239,230,210,.4);
+  box-shadow: 0 0 0 1px rgba(182,50,42,.18) inset;
+  filter: contrast(1.05) saturate(1.1);
+  opacity:.95;
+}
+.stamp::after{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence baseFrequency='0.7' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.65 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode:screen;
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* 黄土山形装饰（hero 底部） */
+.loess{
+  position:absolute;
+  left:0; right:0; bottom:-20px;
+  height:120px;
+  pointer-events:none;
+  opacity:.18;
+  z-index:0;
+}
+
+/* Marquee ticker */
+.ticker{
+  margin-top:60px;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  overflow:hidden;
+  padding:14px 0;
+  font-family:var(--serif-cn);
+  color:var(--ink-mute);
+  letter-spacing:.06em;
+  font-size:15px;
+}
+.ticker-track{
+  display:inline-flex;
+  white-space:nowrap;
+  animation: scroll 80s linear infinite;
+  gap:60px;
+}
+.ticker .dot{color:var(--vermilion); margin:0 28px}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ---------- Section ---------- */
+.section{
+  padding:120px 0 40px;
+  scroll-margin-top:40px;
+}
+.section-head{
+  display:grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items:end;
+  gap:32px;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:18px;
+  margin-bottom:48px;
+}
+.section-head .num{
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-size:42px;
+  color:var(--vermilion);
+  line-height:1;
+}
+.section-head h2{
+  font-family:var(--serif-cn);
+  font-weight:500;
+  font-size:clamp(32px, 4vw, 56px);
+  letter-spacing:.02em;
+  color:var(--ink);
+  line-height:1;
+}
+.section-head h2 small{
+  display:block;
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-weight:400;
+  font-size:14px;
+  color:var(--ink-mute);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-top:8px;
+}
+.section-head .meta-r{
+  font-family:var(--serif-en);
+  color:var(--ink-mute);
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-align:right;
+}
+
+/* ---------- About ---------- */
+.about{
+  display:grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.about .bio p{
+  font-size:18px;
+  line-height:2;
+  margin-bottom:1.2em;
+  color:var(--ink-soft);
+  text-indent:2em;
+}
+.about .bio p::first-letter{
+  font-family:var(--serif-cn);
+  font-size:64px;
+  float:left;
+  line-height:.85;
+  margin:8px 14px 0 0;
+  color:var(--vermilion);
+  font-weight:500;
+}
+.about .bio p + p::first-letter{
+  font-size:inherit; float:none; margin:0; color:inherit;
+}
+.facts{
+  display:flex;flex-direction:column;gap:0;
+  border-top:1px solid var(--ink);
+}
+.facts dt{
+  font-family:var(--serif-en);
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  padding-top:18px;
+}
+.facts dd{
+  font-size:18px;
+  color:var(--ink);
+  padding:6px 0 18px;
+  border-bottom:1px solid var(--rule);
+  font-feature-settings:"pnum","onum";
+}
+.facts dd em{font-family:var(--serif-en); font-style:italic; color:var(--vermilion)}
+
+/* Quote pull */
+.pull-quote{
+  margin:80px 0 0;
+  padding:40px 60px;
+  border-left:4px solid var(--vermilion);
+  background:var(--paper-2);
+  position:relative;
+}
+.pull-quote p{
+  font-family:var(--serif-cn);
+  font-weight:300;
+  font-size:clamp(22px, 2.4vw, 32px);
+  line-height:1.6;
+  color:var(--ink);
+}
+.pull-quote cite{
+  display:block;
+  margin-top:18px;
+  font-style:normal;
+  font-family:var(--serif-en);
+  letter-spacing:.18em;
+  font-size:12px;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+}
+
+/* ---------- Featured ---------- */
+.featured{
+  display:grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap:60px;
+  align-items:start;
+}
+.featured .cover{
+  aspect-ratio: 3/4;
+  background:
+    linear-gradient(135deg, rgba(0,0,0,.06), rgba(0,0,0,.0) 40%),
+    repeating-linear-gradient(45deg, var(--paper-2) 0 8px, var(--paper-3) 8px 9px),
+    var(--paper-2);
+  border:1px solid var(--rule);
+  position:relative;
+  display:grid;place-items:center;
+  overflow:hidden;
+  box-shadow: 8px 8px 0 -2px rgba(35,26,18,.10);
+}
+.featured .cover::before{
+  content:"GŌNG MÍNG · ESSAYS";
+  font-family:var(--serif-en);
+  letter-spacing:.3em;
+  font-size:11px;
+  color:var(--ink-mute);
+  text-transform:uppercase;
+  position:absolute;
+  bottom:18px; right:18px;
+}
+.featured .cover .cn{
+  font-family:var(--brush);
+  font-size:108px;
+  color:var(--vermilion);
+  letter-spacing:.2em;
+  writing-mode:vertical-rl;
+  line-height:1;
+  opacity:.9;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.05);
+}
+.featured .info .kicker{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--vermilion);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:13px;
+}
+.featured .info h3{
+  font-family:var(--serif-cn);
+  font-weight:500;
+  font-size:clamp(36px, 4.2vw, 64px);
+  line-height:1.05;
+  margin:14px 0 10px;
+  letter-spacing:.01em;
+}
+.featured .info .sub{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--ink-mute);
+  font-size:18px;
+  margin-bottom:30px;
+}
+.featured .info .excerpt{
+  font-size:17px;
+  line-height:1.95;
+  color:var(--ink-soft);
+  text-indent:2em;
+  margin-bottom:24px;
+  border-top:1px solid var(--rule);
+  padding-top:24px;
+}
+.featured .actions{display:flex; gap:14px; margin-top:18px; flex-wrap:wrap}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 24px;
+  font-size:14px; letter-spacing:.18em;
+  text-decoration:none;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  background:transparent;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  font-family:inherit;
+}
+.btn:hover{background:var(--ink); color:var(--paper)}
+.btn.primary{background:var(--vermilion); border-color:var(--vermilion); color:var(--paper)}
+.btn.primary:hover{background:var(--vermilion-deep); border-color:var(--vermilion-deep)}
+.btn .arrow{font-family:var(--serif-en); font-style:italic}
+
+/* ---------- Stats ---------- */
+.stats{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:0;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:48px 0;
+}
+.stat{
+  text-align:left;
+  padding:0 28px;
+  border-right:1px solid var(--rule);
+}
+.stat:last-child{border-right:none}
+.stat .num{
+  font-family:var(--serif-en);
+  font-weight:500;
+  font-size:clamp(48px, 6vw, 92px);
+  line-height:1;
+  color:var(--ink);
+  letter-spacing:-.02em;
+  font-feature-settings:"pnum","onum";
+}
+.stat .num sup{
+  font-size:.4em;
+  color:var(--vermilion);
+  vertical-align:super;
+  margin-left:4px;
+  font-style:italic;
+}
+.stat .label{
+  margin-top:14px;
+  font-family:var(--serif-cn);
+  color:var(--ink-mute);
+  letter-spacing:.18em;
+  font-size:13px;
+}
+.stat .label em{font-style:normal; color:var(--vermilion); font-family:var(--serif-en); margin-left:6px}
+@media (max-width:760px){ .stats{grid-template-columns:repeat(2,1fr); gap:32px 0} .stat{border-right:none; border-bottom:1px solid var(--rule); padding-bottom:24px} .stat:nth-last-child(-n+2){border-bottom:none} }
+
+/* ---------- Volumes（八辑） ---------- */
+.volumes{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:0;
+  border:1px solid var(--ink);
+  background:var(--paper);
+}
+.vol-card{
+  padding:32px 24px;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  position:relative;
+  cursor:pointer;
+  transition:background .35s, color .35s;
+  min-height:240px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.vol-card:nth-child(4n){border-right:none}
+.vol-card:nth-last-child(-n+4){border-bottom:none}
+.vol-card:hover{background:var(--ink); color:var(--paper)}
+.vol-card:hover .vol-num,.vol-card:hover .vol-en,.vol-card:hover .vol-count{color:var(--paper-3)}
+.vol-card:hover .vol-cn{color:var(--vermilion)}
+.vol-card .vol-num{
+  font-family:var(--serif-en); font-style:italic;
+  color:var(--ink-mute); font-size:13px; letter-spacing:.18em;
+}
+.vol-card .vol-cn{
+  font-family:var(--brush);
+  font-size:42px;
+  color:var(--ink);
+  letter-spacing:.12em;
+  line-height:1.1;
+  margin:24px 0 6px;
+  transition:color .3s;
+}
+.vol-card .vol-en{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--ink-mute);
+  font-size:15px;
+  letter-spacing:.08em;
+}
+.vol-card .vol-count{
+  margin-top:16px;
+  font-family:var(--serif-en);
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+}
+@media (max-width:1000px){ .volumes{grid-template-columns:repeat(2,1fr)} .vol-card:nth-child(2n){border-right:none} .vol-card:nth-child(2n+1){border-right:1px solid var(--rule)} .vol-card{border-bottom:1px solid var(--rule) !important} .vol-card:nth-last-child(-n+2){border-bottom:none !important} }
+@media (max-width:560px){ .volumes{grid-template-columns:1fr} .vol-card{border-right:none !important; border-bottom:1px solid var(--rule) !important} }
+
+/* ---------- Filters & Works ---------- */
+.filters{
+  display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px;
+}
+.chip{
+  padding:8px 16px;
+  border:1px solid var(--rule);
+  font-size:13px; letter-spacing:.08em;
+  background:transparent;
+  color:var(--ink-soft);
+  cursor:pointer;
+  transition:all .25s;
+  font-family:var(--serif-cn);
+}
+.chip:hover{border-color:var(--ink); color:var(--ink)}
+.chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+
+.works-list{
+  list-style:none;
+  border-top:1px solid var(--ink);
+}
+.work-item{
+  display:grid;
+  grid-template-columns: 70px 1fr 200px 60px;
+  gap:24px;
+  align-items:baseline;
+  padding:24px 8px;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+  transition:background .3s, padding .3s;
+  position:relative;
+}
+.work-item:hover{
+  background:var(--paper-2);
+  padding-left:24px;
+}
+.work-item .idx{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--ink-mute);
+  font-size:18px;
+}
+.work-item .t{
+  font-family:var(--serif-cn);
+  font-size:22px;
+  font-weight:500;
+  letter-spacing:.01em;
+  color:var(--ink);
+  line-height:1.35;
+}
+.work-item .cat{
+  font-size:13px;
+  color:var(--vermilion);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-family:var(--serif-en);
+  font-style:italic;
+  text-align:right;
+}
+.work-item .arr{
+  font-family:var(--serif-en);
+  font-size:24px;
+  color:var(--ink);
+  text-align:right;
+  transition:transform .3s;
+}
+.work-item:hover .arr{transform:translateX(8px); color:var(--vermilion)}
+
+@media (max-width:760px){
+  .work-item{
+    grid-template-columns:50px 1fr 40px;
+    gap:14px;
+  }
+  .work-item .cat{display:none}
+  .work-item .t{font-size:18px}
+}
+
+.see-more{
+  display:flex; justify-content:center; gap:14px; margin-top:50px;
+}
+
+/* ---------- Reading（节选样章） ---------- */
+.reading{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:60px;
+}
+.reading article{
+  background:var(--paper-2);
+  padding:40px 44px;
+  border:1px solid var(--rule);
+  position:relative;
+}
+.reading article::before{
+  content:"节 选";
+  position:absolute; top:-12px; left:24px;
+  background:var(--vermilion); color:var(--paper);
+  padding:3px 14px;
+  font-size:11px; letter-spacing:.3em;
+}
+.reading h4{
+  font-family:var(--serif-cn);
+  font-weight:500;
+  font-size:28px;
+  margin-bottom:6px;
+}
+.reading .meta{
+  font-family:var(--serif-en); font-style:italic;
+  color:var(--ink-mute); font-size:13px; letter-spacing:.12em;
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+.reading p{
+  color:var(--ink-soft);
+  font-size:16px;
+  line-height:1.95;
+  text-indent:2em;
+  margin-bottom:.8em;
+}
+@media (max-width:900px){ .reading{grid-template-columns:1fr} }
+
+/* ---------- Timeline ---------- */
+.timeline{
+  position:relative;
+  padding-left:48px;
+}
+.timeline::before{
+  content:"";
+  position:absolute; left:8px; top:0; bottom:0;
+  width:1px; background:var(--ink);
+}
+.tl-item{
+  position:relative;
+  padding:0 0 60px;
+}
+.tl-item::before{
+  content:"";
+  position:absolute; left:-44px; top:8px;
+  width:13px; height:13px;
+  background:var(--paper);
+  border:2px solid var(--vermilion);
+  border-radius:50%;
+}
+.tl-item .yr{
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-weight:500;
+  font-size:36px;
+  color:var(--vermilion);
+  line-height:1;
+}
+.tl-item h4{
+  margin:14px 0 6px;
+  font-family:var(--serif-cn);
+  font-weight:500;
+  font-size:24px;
+  letter-spacing:.01em;
+}
+.tl-item p{
+  color:var(--ink-soft);
+  max-width:640px;
+  font-size:16px;
+  line-height:1.85;
+}
+
+/* ---------- Newsletter ---------- */
+.subscribe{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  padding:80px 0;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.subscribe h3{
+  font-family:var(--serif-cn);
+  font-weight:400;
+  font-size:clamp(28px, 3.2vw, 44px);
+  line-height:1.3;
+  margin-bottom:14px;
+}
+.subscribe h3 .ink{color:var(--vermilion)}
+.subscribe p{
+  color:var(--ink-soft);
+  font-size:16px;
+  max-width:460px;
+  line-height:1.85;
+}
+.subscribe form{
+  display:flex; flex-direction:column; gap:14px;
+  border-left:1px solid var(--ink);
+  padding-left:40px;
+}
+.subscribe label{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--ink-mute);
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.subscribe input{
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--ink);
+  padding:12px 4px;
+  font-family:var(--serif-cn);
+  font-size:18px;
+  color:var(--ink);
+  outline:none;
+}
+.subscribe input::placeholder{color:var(--ink-mute)}
+.subscribe input:focus{border-color:var(--vermilion)}
+.subscribe .row{display:flex; gap:12px; align-items:flex-end}
+.subscribe .row input{flex:1}
+
+/* ---------- Footer ---------- */
+footer.foot{
+  margin-top:120px;
+  padding:80px 0 40px;
+  border-top:2px solid var(--ink);
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap:40px;
+}
+footer h5{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--ink-mute);
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+footer ul{list-style:none}
+footer li{margin-bottom:10px}
+footer a{
+  color:var(--ink); text-decoration:none;
+  font-size:15px;
+  border-bottom:1px solid transparent;
+  transition:border .3s, color .3s;
+}
+footer a:hover{color:var(--vermilion); border-color:var(--vermilion)}
+footer .signoff{
+  grid-column:1/-1;
+  display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  margin-top:60px;
+  padding-top:24px;
+  border-top:1px solid var(--rule);
+  font-family:var(--serif-en);
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+}
+footer .brand-cn{
+  font-family:var(--brush);
+  font-size:60px;
+  color:var(--ink);
+  letter-spacing:.2em;
+  line-height:1;
+}
+footer .brand-cn small{
+  display:block;
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-size:14px;
+  color:var(--ink-mute);
+  letter-spacing:.18em;
+  margin-top:14px;
+}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1; transform:none}
+
+/* ---------- Modal ---------- */
+.modal{
+  position:fixed; inset:0;
+  background:rgba(35,26,18,.92);
+  display:none;
+  z-index:50;
+  align-items:flex-start; justify-content:center;
+  padding:14vh 24px 0;
+  backdrop-filter:blur(6px);
+}
+.modal.open{display:flex}
+.modal .box{
+  width:min(720px, 100%);
+  background:var(--paper);
+  border:1px solid var(--rule);
+}
+.modal input{
+  width:100%;
+  padding:24px;
+  background:transparent;
+  border:none; border-bottom:1px solid var(--ink);
+  font-family:var(--serif-cn);
+  font-size:22px;
+  color:var(--ink); outline:none;
+}
+.modal .hint{padding:18px 24px; color:var(--ink-mute); font-family:var(--serif-en); font-style:italic; font-size:13px; letter-spacing:.14em}
+.modal .hint kbd{
+  font-family:var(--serif-en); border:1px solid var(--rule); padding:2px 8px; border-radius:3px; margin:0 4px; font-style:normal;
+}
+
+/* ---------- Responsive cleanup ---------- */
+@media (max-width:900px){
+  nav.primary ul{gap:14px; flex-wrap:wrap}
+  .hero{grid-template-columns:1fr; min-height:auto}
+  .hero .side-l, .hero .side-r{display:none}
+  .stamp{right:0; top:-30px; width:80px; height:80px; font-size:28px}
+  .about{grid-template-columns:1fr; gap:48px}
+  .featured{grid-template-columns:1fr; gap:32px}
+  .subscribe{grid-template-columns:1fr; gap:32px; padding:48px 0}
+  .subscribe form{border-left:none; padding-left:0; border-top:1px solid var(--ink); padding-top:32px}
+  footer.foot{grid-template-columns:1fr 1fr; gap:32px}
+}
+
+/* ---------- Mobile (≤640px) ---------- */
+@media (max-width:640px){
+  .shell{padding:14px 16px}
+  /* Top bar: hide side meta, keep brandmark centered */
+  .topbar{grid-template-columns:1fr auto 1fr; padding:14px 0}
+  .topbar .meta{font-size:10px; letter-spacing:.18em}
+  .topbar .meta.right{display:none}
+  .topbar .meta:not(.right){font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .brandmark{font-size:22px; letter-spacing:.4em}
+
+  /* Nav */
+  nav.primary{padding:10px 0}
+  nav.primary ul{gap:10px 14px; justify-content:flex-start}
+  nav.primary li a{font-size:12px; letter-spacing:.1em}
+  nav.primary .search-trigger{display:none}
+
+  /* Hero */
+  .hero{padding:48px 0 56px; gap:24px}
+  .hero h1{font-size:clamp(64px, 18vw, 96px); line-height:.95}
+  .hero .lead{font-size:15px; line-height:1.8}
+  .hero .eyebrow{font-size:11px}
+  .stamp{right:auto; left:0; top:-12px; width:64px; height:64px; font-size:24px}
+
+  /* Ticker */
+  .ticker{font-size:12px; padding:14px 0}
+
+  /* Section headings */
+  section{padding:56px 0 !important}
+  .sec-num{font-size:13px}
+  h2{font-size:clamp(34px, 9vw, 52px) !important; line-height:1.05}
+
+  /* About */
+  .about .bio p{font-size:15px; line-height:1.95}
+  .about .facts dt{font-size:11px}
+  .about .facts dd{font-size:14px}
+
+  /* Pull quote */
+  .pullquote{font-size:clamp(22px, 6vw, 32px) !important; line-height:1.5; padding:32px 0}
+
+  /* Stats */
+  .stats{gap:24px 0}
+  .stat .num{font-size:clamp(38px, 12vw, 60px)}
+  .stat .lbl{font-size:11px}
+
+  /* Volume cards */
+  .vol-card{padding:24px 18px}
+  .vol-card .vol-num{font-size:11px}
+  .vol-card .vol-name{font-size:22px}
+  .vol-card .vol-desc{font-size:13px}
+
+  /* Works list */
+  #worksHeader{flex-wrap:wrap; gap:12px}
+  #filters{gap:6px; flex-wrap:wrap}
+  #filters .chip{font-size:11px; padding:6px 10px}
+  .work-item{
+    grid-template-columns: 44px 1fr auto !important;
+    gap:12px !important;
+    padding:18px 4px !important;
+  }
+  .work-item .idx{font-size:11px}
+  .work-item .t{font-size:16px; line-height:1.4}
+  .work-item .cat{font-size:11px; grid-column:2; grid-row:2; margin-top:2px}
+  .work-item .arr{font-size:18px; align-self:center}
+  .work-item:hover{padding-left:4px !important}
+
+  /* Reading / excerpts */
+  .reading{gap:32px}
+  .reading article{padding:0}
+  .reading h3{font-size:22px}
+  .reading p{font-size:14px}
+
+  /* Timeline */
+  .timeline{padding:0}
+  .timeline-item{grid-template-columns:60px 1fr !important; gap:16px}
+  .timeline-item .yr{font-size:13px}
+  .timeline-item .ev{font-size:14px}
+
+  /* Subscribe */
+  .subscribe{padding:40px 0}
+  .subscribe .qr{max-width:200px; margin:0 auto}
+  .subscribe h3{font-size:24px}
+  .subscribe p{font-size:14px}
+
+  /* Footer */
+  footer.foot{grid-template-columns:1fr; gap:28px; padding:40px 0 60px}
+  footer .brand-cn{font-size:32px}
+  footer .col h4{font-size:11px}
+  footer .col a{font-size:13px}
+
+  /* Modal / search */
+  .modal .panel{width:92vw; max-height:80vh}
+  .modal input{font-size:16px; padding:18px 20px}
+  .modal .hint{font-size:11px; padding:14px 20px}
+}
+
+/* ---------- Tiny phones (≤380px) ---------- */
+@media (max-width:380px){
+  .hero h1{font-size:clamp(54px, 16vw, 80px)}
+  .brandmark{font-size:20px; letter-spacing:.3em}
+  .work-item{grid-template-columns:38px 1fr auto !important}
+  .stats{grid-template-columns:1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- ============== TOP BAR ============== -->
+  <header class="topbar">
+    <div class="meta">公明随笔 · MMXXVI</div>
+    <div class="brandmark">公 明</div>
+    <div class="meta right">关注 847 · 自 二〇一八</div>
+  </header>
+
+  <!-- ============== NAV ============== -->
+  <nav class="primary">
+    <ul>
+      <li><a href="#about"><span class="num">01</span>其人</a></li>
+      <li><a href="#volumes"><span class="num">02</span>八辑</a></li>
+      <li><a href="#works"><span class="num">03</span>文集</a></li>
+      <li><a href="#reading"><span class="num">04</span>选读</a></li>
+      <li><a href="#timeline"><span class="num">05</span>年谱</a></li>
+      <li><a href="#subscribe"><span class="num">06</span>订阅</a></li>
+    </ul>
+    <button class="search-pill" onclick="document.getElementById('searchModal').classList.add('open'); setTimeout(()=>document.getElementById('searchInput').focus(),50)">
+      搜文 · <kbd style="font-family:var(--serif-en);border:1px solid var(--rule);padding:1px 6px;font-size:11px;border-radius:3px">⌘K</kbd>
+    </button>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <aside class="side-l">陕 北 · 横 山 · 黄 土 高 原 · 信 笔 而 书</aside>
+
+    <div>
+      <h1 class="reveal">
+        以<span class="accent">公</span>之名<br>
+        言<span class="accent">明</span>之事
+        <em>Essays from the Loess Plateau · Notes by Gōng Míng</em>
+      </h1>
+
+      <p class="lead reveal">
+        公明，男，六十年代生，陕北横山人，教育工作者。
+        自二〇一八年于公众号「公明随笔」执笔，写故乡、写童年、写凡人琐事，
+        亦读史以鉴今。文风敦厚，白描见长，七年来累计百余篇，与读者
+        八百四十余人结一段慢慢的字缘。
+      </p>
+    </div>
+
+    <aside class="side-r">
+      Pen Name<br><b>公 明</b>
+      <div style="margin-top:32px">籍 贯<br><b>陕北 · 横山</b></div>
+      <div style="margin-top:32px">题 材<br><b>散文 · 随笔</b></div>
+    </aside>
+
+    <div class="stamp">公明</div>
+
+    <!-- 黄土山形 -->
+    <svg class="loess" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path fill="#a3631e" d="M0,80 Q150,30 300,60 T600,50 T900,70 T1200,40 L1200,120 L0,120 Z"/>
+      <path fill="#231a12" opacity=".5" d="M0,100 Q200,70 400,90 T800,80 T1200,95 L1200,120 L0,120 Z"/>
+    </svg>
+  </section>
+
+  <!-- ============== TICKER ============== -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>新作 即将于 公众号「公明随笔」推送</span><span class="dot">✦</span>
+      <span>「以史为鉴」系列连载中 · 读史识人</span><span class="dot">✦</span>
+      <span>共 102 篇 · 累计十三万余字 · 平均阅读 7,000+</span><span class="dot">✦</span>
+      <span>Essays from the Loess Plateau · Since 2018</span><span class="dot">✦</span>
+      <span>新作 即将于 公众号「公明随笔」推送</span><span class="dot">✦</span>
+      <span>「以史为鉴」系列连载中 · 读史识人</span><span class="dot">✦</span>
+      <span>共 102 篇 · 累计十三万余字 · 平均阅读 7,000+</span><span class="dot">✦</span>
+      <span>Essays from the Loess Plateau · Since 2018</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ============== ABOUT ============== -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <div class="num">I.</div>
+      <h2>其人 <small>About the Writer</small></h2>
+      <div class="meta-r">A brief introduction</div>
+    </div>
+
+    <div class="about">
+      <div class="bio">
+        <p class="reveal">
+          公明，男，六十年代生人，陕北榆林横山人。少时长于胡沟岔，硷畔窑前度童年；
+          看过电影队下乡，听过盲艺人说书，赶过县剧团的戏，背过秦王砭的传说。
+          中学考入横中，后于绥德求学，归乡后任教于响水中学，从此长期执鞭杏坛，
+          以教书为业，与师生、笔墨、课桌为伴，于白日的劳作之后，深夜执笔。
+        </p>
+        <p class="reveal">
+          自二〇一八年开设公众号「公明随笔」，至今已陪伴读者七年有余。
+          文章多为散文、随笔，写故乡风物、童年记忆、凡人琐事，亦有读史札记。
+          不疾不徐，白描见长，敦厚而有烟火气。读者评其文字「像旧木台面被一束斜阳照过，
+          安静地，不响，却让人想坐下来」。
+        </p>
+      </div>
+
+      <dl class="facts reveal">
+        <dt>笔 名</dt><dd>公 明 <em>Gōng Míng</em></dd>
+        <dt>性别 / 年代</dt><dd>男 · 六十年代生</dd>
+        <dt>籍 贯</dt><dd>陕西 · 榆林 · 横山</dd>
+        <dt>本 职</dt><dd>教育工作者</dd>
+        <dt>体 裁</dt><dd>散文 · 随笔 · 读史札记</dd>
+        <dt>已成篇目</dt><dd>102 篇 · <em>~13 万字</em></dd>
+        <dt>主要平台</dt><dd>公众号「公明随笔」</dd>
+        <dt>读 者</dt><dd>847 关注 · <em>~7,000 / 篇</em></dd>
+        <dt>邮 箱</dt><dd>651956094@qq.com</dd>
+      </dl>
+    </div>
+
+    <blockquote class="pull-quote reveal">
+      <p>「故乡，像母亲一样，用呆滞而混浊的目光，为一拨一拨的游子们送行。
+      虽然自己万般寂寥，但仍然坚信：她的孩子们走出去会比留在自己身边过得更好。」</p>
+      <cite>— 公明 · 《故乡》</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============== STATS ============== -->
+  <section class="section">
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="num">102</div>
+        <div class="label">已 成 篇 目 <em>essays</em></div>
+      </div>
+      <div class="stat">
+        <div class="num">13<sup>万</sup></div>
+        <div class="label">累 计 字 数 <em>chars</em></div>
+      </div>
+      <div class="stat">
+        <div class="num">847</div>
+        <div class="label">公 众 号 关 注 <em>followers</em></div>
+      </div>
+      <div class="stat">
+        <div class="num">7<sup>千</sup></div>
+        <div class="label">单 篇 平 均 阅 读 <em>per essay</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOLUMES ============== -->
+  <section class="section" id="volumes">
+    <div class="section-head">
+      <div class="num">II.</div>
+      <h2>八辑 <small>Eight Volumes</small></h2>
+      <div class="meta-r">Click to filter below</div>
+    </div>
+
+    <div class="volumes">
+      <div class="vol-card" data-vol="故乡">
+        <div class="vol-num">— 卷 一</div>
+        <div>
+          <div class="vol-cn">故乡 · 陕北风物</div>
+          <div class="vol-en">Hometown · Northern Shaanxi</div>
+        </div>
+        <div class="vol-count">15 篇</div>
+      </div>
+      <div class="vol-card" data-vol="童年">
+        <div class="vol-num">— 卷 二</div>
+        <div>
+          <div class="vol-cn">童年 · 六零回忆</div>
+          <div class="vol-en">Childhood · The Sixties</div>
+        </div>
+        <div class="vol-count">11 篇</div>
+      </div>
+      <div class="vol-card" data-vol="凡人">
+        <div class="vol-num">— 卷 三</div>
+        <div>
+          <div class="vol-cn">凡人琐事</div>
+          <div class="vol-en">Ordinary Days</div>
+        </div>
+        <div class="vol-count">16 篇</div>
+      </div>
+      <div class="vol-card" data-vol="退休">
+        <div class="vol-num">— 卷 四</div>
+        <div>
+          <div class="vol-cn">退休 · 行旅</div>
+          <div class="vol-en">After Retirement · Travels</div>
+        </div>
+        <div class="vol-count">7 篇</div>
+      </div>
+      <div class="vol-card" data-vol="思亲">
+        <div class="vol-num">— 卷 五</div>
+        <div>
+          <div class="vol-cn">思念亲人</div>
+          <div class="vol-en">Remembering Loved Ones</div>
+        </div>
+        <div class="vol-count">5 篇</div>
+      </div>
+      <div class="vol-card" data-vol="岁时">
+        <div class="vol-num">— 卷 六</div>
+        <div>
+          <div class="vol-cn">岁时 · 风物</div>
+          <div class="vol-en">Seasons & Sceneries</div>
+        </div>
+        <div class="vol-count">15 篇</div>
+      </div>
+      <div class="vol-card" data-vol="杂感">
+        <div class="vol-num">— 卷 七</div>
+        <div>
+          <div class="vol-cn">杂感 · 人生</div>
+          <div class="vol-en">Reflections on Life</div>
+        </div>
+        <div class="vol-count">17 篇</div>
+      </div>
+      <div class="vol-card" data-vol="读史">
+        <div class="vol-num">— 卷 八</div>
+        <div>
+          <div class="vol-cn">以史为鉴</div>
+          <div class="vol-en">Reading the Histories</div>
+        </div>
+        <div class="vol-count">15 篇</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== WORKS ============== -->
+  <section class="section" id="works">
+    <div class="section-head">
+      <div class="num">III.</div>
+      <h2>文集 <small>Selected Writings · 全 102 篇</small></h2>
+      <div class="meta-r" id="totalCount">Total · 102 entries</div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="all">全部</button>
+      <button class="chip" data-cat="故乡">故乡 · 陕北风物</button>
+      <button class="chip" data-cat="童年">童年 · 六零回忆</button>
+      <button class="chip" data-cat="凡人">凡人琐事</button>
+      <button class="chip" data-cat="退休">退休 · 行旅</button>
+      <button class="chip" data-cat="思亲">思念亲人</button>
+      <button class="chip" data-cat="岁时">岁时 · 风物</button>
+      <button class="chip" data-cat="杂感">杂感 · 人生</button>
+      <button class="chip" data-cat="读史">以史为鉴</button>
+    </div>
+
+    <ul class="works-list" id="worksList"></ul>
+
+    <div class="see-more">
+      <button class="btn" id="loadMore">载入更多 <span class="arrow">↓</span></button>
+      <button class="btn" id="showAll">展开全部</button>
+    </div>
+  </section>
+
+  <!-- ============== READING（节选） ============== -->
+  <section class="section" id="reading">
+    <div class="section-head">
+      <div class="num">IV.</div>
+      <h2>选读 <small>Excerpts</small></h2>
+      <div class="meta-r">Two pieces to begin with</div>
+    </div>
+
+    <div class="reading">
+      <article class="reveal">
+        <h4>故乡</h4>
+        <div class="meta">VOL.I · 陕北风物 · 卷首</div>
+        <p>人们纷纷挤进了城市，把故乡抛弃在原地，像抛弃一件穿了几十年、千疮百孔的破棉袄一样。</p>
+        <p>每当上坟路过老家，我总要驻足抚摸那破败不堪的楼门院墙，腐朽空心的老柳树，瞪着怪眼的箭杆杨。我总要把丢弃在硷畔洼上的瓶瓶罐罐拾起，擦拭一番放回窑洞里，对着久已闲置的石碾、石磨发愣，脑海里浮现出童年的一幕幕情景。</p>
+        <p>……故乡，像母亲一样，用呆滞而混浊的目光，为一拨一拨的游子们送行。</p>
+      </article>
+
+      <article class="reveal">
+        <h4>陕北说书人</h4>
+        <div class="meta">VOL.I · 陕北风物</div>
+        <p>陕北说书，是颇具地方特色的一种说唱艺术。最早从事陕北说书的几乎都是盲人。所以农村人说话粗糙的，就把庄里来说书的直接称作：咱们庄来瞎子了。后来说书的人告诉我们，他们叫盲艺人宣传队。</p>
+        <p>他说到哀婉处，三弦的音调如泣如诉，女人们听得一把鼻涕一把泪。说到激烈处，三弦的音调如金戈铁马，孩子们听得满院子翻跟头。当他口里字正腔圆，三弦随之一字一顿时，老者们听得频频点头，说：人家这弦子，弹的会说话了。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============== TIMELINE ============== -->
+  <section class="section" id="timeline">
+    <div class="section-head">
+      <div class="num">V.</div>
+      <h2>年谱 <small>Chronology</small></h2>
+      <div class="meta-r">A life in brief</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="yr">1960s</div>
+        <h4>生于陕北横山 · 胡沟岔</h4>
+        <p>少年时长于硷畔窑前，亲见电影队下乡、盲艺人说书、县剧团唱戏，记忆里满是黄土与烟火。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="yr">少年</div>
+        <h4>横中求学 · 绥德深造</h4>
+        <p>本村念到初中毕业，第一次远行去响水赴中考；考入横山中学，后于绥德继续学业。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="yr">青年</div>
+        <h4>归乡执教 · 任职响水中学</h4>
+        <p>恢复高考后被分配回响水中学任教，校长称其为"恢复高考后分来的第一个大学生"。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="yr">中年</div>
+        <h4>执教生涯 · 半生杏坛</h4>
+        <p>长期从事教育工作，与学生、讲台、书本相伴大半生。日间教书育人，闲时观察人事，是日后写作的底气。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="yr">2018</div>
+        <h4>开设公众号「公明随笔」</h4>
+        <p>第一篇文字推送，从此在文字里安身。题材从故乡风物起笔，逐渐扩至童年、人生、读史。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="yr">2026</div>
+        <h4>笔耕七年 · 文章百余</h4>
+        <p>累计 102 篇，约十三万字。读者 847 关注，单篇平均阅读 7,000+。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SUBSCRIBE ============== -->
+  <section class="section" id="subscribe">
+    <div class="section-head">
+      <div class="num">VI.</div>
+      <h2>订阅 <small>Letters by Mail</small></h2>
+      <div class="meta-r">Once a fortnight</div>
+    </div>
+
+    <div class="subscribe">
+      <div class="reveal">
+        <h3>不定期一封 <span class="ink">来自黄土高原的字</span></h3>
+        <p>
+          收录最新的散文、随笔，间或附上几行未发的小记，与一两段陕北旧事。
+          没有打扰，没有营销——只是一封安静的来信。
+        </p>
+      </div>
+
+      <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('感谢订阅，欢迎成为「公明随笔」的常客。')">
+        <label for="email">订阅邮箱地址</label>
+        <div class="row">
+          <input type="email" id="email" placeholder="your@email.com" required>
+          <button type="submit" class="btn primary" style="padding:14px 20px">订阅 →</button>
+        </div>
+        <label style="margin-top:18px">或扫码关注公众号「公明随笔」</label>
+        <div style="display:flex; gap:18px; align-items:center; padding-top:10px">
+          <img src="qrcode.png" alt="公明随笔 公众号二维码" style="width:128px; height:128px; border:1px solid var(--rule); display:block; background:#fff; padding:6px"/>
+          <div style="font-size:14px; color:var(--ink-soft); line-height:1.7">
+            微信公众号<br>
+            <strong style="font-family:var(--brush); font-size:26px; letter-spacing:.18em; color:var(--ink)">公明随笔</strong><br>
+            <span style="font-family:var(--serif-en); font-style:italic; color:var(--ink-mute); font-size:13px; letter-spacing:.1em">长按识别 · 一同读字</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="foot">
+    <div>
+      <div class="brand-cn">
+        公 明
+        <small>GŌNG MÍNG · Essays from the Loess Plateau · MMXXVI</small>
+      </div>
+    </div>
+    <div>
+      <h5>导 览</h5>
+      <ul>
+        <li><a href="#about">其人</a></li>
+        <li><a href="#volumes">八辑</a></li>
+        <li><a href="#works">文集</a></li>
+        <li><a href="#reading">选读</a></li>
+        <li><a href="#timeline">年谱</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>八 辑</h5>
+      <ul>
+        <li><a href="#works" data-jump="故乡">故乡 · 陕北风物</a></li>
+        <li><a href="#works" data-jump="童年">童年 · 六零回忆</a></li>
+        <li><a href="#works" data-jump="读史">以史为鉴</a></li>
+        <li><a href="#works" data-jump="思亲">思念亲人</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联 络</h5>
+      <ul>
+        <li><a href="mailto:651956094@qq.com">651956094@qq.com</a></li>
+        <li><a href="#subscribe">微信公众号 · 公明随笔</a></li>
+      </ul>
+    </div>
+
+    <div class="signoff">
+      <span>© 2026 公明 · 保留所有文字之版权</span>
+      <span>Designed for a writer of the Loess Plateau · Set in Noto Serif & EB Garamond</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ============== SEARCH MODAL ============== -->
+<div class="modal" id="searchModal" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="box">
+    <input type="text" id="searchInput" placeholder="搜索文章标题…（如：故乡、说书、童年、李斯）" />
+    <div class="hint">按 <kbd>Esc</kbd> 关闭 · 共 102 篇可搜</div>
+    <ul id="searchResults" style="list-style:none; max-height:50vh; overflow:auto"></ul>
+  </div>
+</div>
+
+<script>
+// ---------- 全 102 篇真实标题 + 分辑归类 ----------
+const essays = [
+  {id:"a001", t:"故乡", cat:"故乡"},
+  {id:"a002", t:"故乡 · 续", cat:"故乡"},
+  {id:"a003", t:"杀猪菜", cat:"故乡"},
+  {id:"a004", t:"陕北说书人", cat:"故乡"},
+  {id:"a005", t:"我们村有个秦王砭", cat:"故乡"},
+  {id:"a006", t:"我和响水", cat:"故乡"},
+  {id:"a007", t:"我说的是响水堡的桥", cat:"故乡"},
+  {id:"a008", t:"横山羊肉", cat:"故乡"},
+  {id:"a009", t:"家乡的豆腐", cat:"故乡"},
+  {id:"a010", t:"杂面", cat:"故乡"},
+  {id:"a011", t:"陕北羊杂碎", cat:"故乡"},
+  {id:"a012", t:"二先生和对联", cat:"故乡"},
+  {id:"a013", t:"炭猫", cat:"故乡"},
+  {id:"a014", t:"陕北蓝", cat:"故乡"},
+  {id:"a015", t:"魂牵梦绕谷家湾", cat:"故乡"},
+  {id:"a016", t:"童年", cat:"童年"},
+  {id:"a017", t:"童年 · 续", cat:"童年"},
+  {id:"a018", t:"六零后的快乐童年", cat:"童年"},
+  {id:"a019", t:"我的一年级", cat:"童年"},
+  {id:"a020", t:"儿时的奢侈", cat:"童年"},
+  {id:"a021", t:"腊月", cat:"童年"},
+  {id:"a022", t:"那年那除夕", cat:"童年"},
+  {id:"a023", t:"剃头", cat:"童年"},
+  {id:"a024", t:"被亲人惯着的画家", cat:"童年"},
+  {id:"a025", t:"拦羊那些事", cat:"童年"},
+  {id:"a026", t:"库刀的故事", cat:"童年"},
+  {id:"a027", t:"凡人琐事", cat:"凡人"},
+  {id:"a028", t:"我当康彩", cat:"凡人"},
+  {id:"a029", t:"疥癣之疾", cat:"凡人"},
+  {id:"a030", t:"贺岁羊", cat:"凡人"},
+  {id:"a031", t:"戒烟", cat:"凡人"},
+  {id:"a032", t:"候车", cat:"凡人"},
+  {id:"a033", t:"我的高考", cat:"凡人"},
+  {id:"a034", t:"三斋八号", cat:"凡人"},
+  {id:"a035", t:"女将聚会", cat:"凡人"},
+  {id:"a036", t:"我的抽烟师傅", cat:"凡人"},
+  {id:"a037", t:"痴人说梦（一）", cat:"凡人"},
+  {id:"a038", t:"痴人说梦（二）", cat:"凡人"},
+  {id:"a039", t:"痴人说梦（三）", cat:"凡人"},
+  {id:"a040", t:"寒冬", cat:"凡人"},
+  {id:"a041", t:"碾盘", cat:"故乡"},
+  {id:"a042", t:"吃芝麻的鳖", cat:"凡人"},
+  {id:"a043", t:"退休生活", cat:"退休"},
+  {id:"a044", t:"初游西藏", cat:"退休"},
+  {id:"a045", t:"山西之行", cat:"退休"},
+  {id:"a046", t:"自得其乐", cat:"退休"},
+  {id:"a047", t:"我的退休生活", cat:"退休"},
+  {id:"a048", t:"老之将至（一）", cat:"退休"},
+  {id:"a049", t:"老之将至（二）", cat:"退休"},
+  {id:"a050", t:"思念亲人", cat:"思亲"},
+  {id:"a051", t:"外爷", cat:"思亲"},
+  {id:"a052", t:"怀念父亲", cat:"思亲"},
+  {id:"a053", t:"怀念母亲", cat:"思亲"},
+  {id:"a054", t:"师恩难忘", cat:"思亲"},
+  {id:"a055", t:"春天来了", cat:"岁时"},
+  {id:"a056", t:"年味", cat:"岁时"},
+  {id:"a057", t:"春天来了 · 续", cat:"岁时"},
+  {id:"a058", t:"梨花", cat:"岁时"},
+  {id:"a059", t:"老年歌", cat:"岁时"},
+  {id:"a060", t:"开心过好当下", cat:"岁时"},
+  {id:"a061", t:"田园小憩", cat:"岁时"},
+  {id:"a062", t:"秀色可餐", cat:"岁时"},
+  {id:"a063", t:"谢谢你孩子", cat:"岁时"},
+  {id:"a064", t:"红叶", cat:"岁时"},
+  {id:"a065", t:"河滨公园赞", cat:"岁时"},
+  {id:"a066", t:"献给六零后", cat:"岁时"},
+  {id:"a067", t:"横山河滨公园石雕", cat:"岁时"},
+  {id:"a068", t:"祭闯王", cat:"岁时"},
+  {id:"a069", t:"秋高气爽过中秋", cat:"岁时"},
+  {id:"a070", t:"偶有一得", cat:"杂感"},
+  {id:"a071", t:"难得糊涂", cat:"杂感"},
+  {id:"a072", t:"说停", cat:"杂感"},
+  {id:"a073", t:"咏水", cat:"杂感"},
+  {id:"a074", t:"幸福感从何而来", cat:"杂感"},
+  {id:"a075", t:"下辈子做你的父亲", cat:"杂感"},
+  {id:"a076", t:"生命书远方", cat:"杂感"},
+  {id:"a077", t:"吸收和输出", cat:"杂感"},
+  {id:"a078", t:"巧妇难为无米之炊", cat:"杂感"},
+  {id:"a079", t:"永远不要说迟", cat:"杂感"},
+  {id:"a080", t:"关于养生", cat:"杂感"},
+  {id:"a081", t:"仪式感很重要", cat:"杂感"},
+  {id:"a082", t:"细节", cat:"杂感"},
+  {id:"a083", t:"索债难", cat:"杂感"},
+  {id:"a084", t:"穿不破的拖鞋", cat:"凡人"},
+  {id:"a085", t:"长辈的诉苦情节", cat:"杂感"},
+  {id:"a086", t:"尴尬种种", cat:"杂感"},
+  {id:"a087", t:"所谓君子小人", cat:"杂感"},
+  {id:"a088", t:"从打火镰到登火星", cat:"读史"},
+  {id:"a089", t:"戏说战争与图腾", cat:"读史"},
+  {id:"a090", t:"从阅读和追剧中想到的", cat:"读史"},
+  {id:"a091", t:"感恩食物", cat:"读史"},
+  {id:"a092", t:"变迁", cat:"读史"},
+  {id:"a093", t:"故事新编", cat:"读史"},
+  {id:"a094", t:"以史为鉴", cat:"读史"},
+  {id:"a095", t:"读史识人之吴起", cat:"读史"},
+  {id:"a096", t:"知进知退说范蠡", cat:"读史"},
+  {id:"a097", t:"读史识人之费无忌", cat:"读史"},
+  {id:"a098", t:"礼教是儒家文化的糟粕", cat:"读史"},
+  {id:"a099", t:"采薇", cat:"读史"},
+  {id:"a100", t:"管仲与鲍叔牙", cat:"读史"},
+  {id:"a101", t:"读史识人之公孙弘", cat:"读史"},
+  {id:"a102", t:"李斯", cat:"读史"},
+];
+
+const list = document.getElementById('worksList');
+const totalCount = document.getElementById('totalCount');
+let currentCat = 'all';
+let visible = 12;
+
+function render(){
+  const filtered = essays.filter(e => currentCat==='all' || e.cat===currentCat);
+  totalCount.textContent = `Total · ${filtered.length} ${filtered.length===1?'entry':'entries'}`;
+  list.innerHTML = filtered.slice(0, visible).map((e, i) => `
+    <li>
+      <a class="work-item" href="articles/${e.id}.html" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:80px 1fr auto auto;gap:16px;align-items:center">
+        <div class="idx">No. ${String(i+1).padStart(3,'0')}</div>
+        <div class="t">${e.t}</div>
+        <div class="cat">${e.cat}</div>
+        <div class="arr">→</div>
+      </a>
+    </li>
+  `).join('');
+  document.getElementById('loadMore').style.display = (visible >= filtered.length) ? 'none' : 'inline-flex';
+  document.getElementById('showAll').style.display = (visible >= filtered.length) ? 'none' : 'inline-flex';
+}
+
+document.getElementById('filters').addEventListener('click', e => {
+  if(e.target.classList.contains('chip')){
+    document.querySelectorAll('#filters .chip').forEach(c=>c.classList.remove('active'));
+    e.target.classList.add('active');
+    currentCat = e.target.dataset.cat;
+    visible = 12;
+    render();
+  }
+});
+document.getElementById('loadMore').addEventListener('click', ()=>{ visible += 12; render() });
+document.getElementById('showAll').addEventListener('click', ()=>{ visible = 9999; render() });
+
+// 八辑卡片点击 → 跳转并筛选
+document.querySelectorAll('.vol-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const v = card.dataset.vol;
+    document.querySelectorAll('#filters .chip').forEach(c=>{
+      c.classList.toggle('active', c.dataset.cat===v);
+    });
+    currentCat = v; visible = 12; render();
+    document.getElementById('works').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// footer 八辑跳转
+document.querySelectorAll('[data-jump]').forEach(a => {
+  a.addEventListener('click', e => {
+    const v = a.dataset.jump;
+    document.querySelectorAll('#filters .chip').forEach(c=>c.classList.toggle('active', c.dataset.cat===v));
+    currentCat = v; visible = 12; render();
+  });
+});
+
+render();
+
+// ---------- Reveal ----------
+const io = new IntersectionObserver(es => es.forEach(en => en.isIntersecting && en.target.classList.add('in')), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ---------- Search ----------
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+searchInput && searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim();
+  if(!q){ searchResults.innerHTML=''; return }
+  const hits = essays.filter(e => (e.t+e.cat).toLowerCase().includes(q.toLowerCase()));
+  searchResults.innerHTML = hits.length ? hits.map(h=>`
+    <li>
+      <a href="articles/${h.id}.html" style="text-decoration:none;color:inherit;padding:16px 24px; border-top:1px solid var(--rule); display:flex; justify-content:space-between; gap:16px">
+        <div style="font-size:18px; font-weight:500">${h.t}</div>
+        <div style="font-family:var(--serif-en); color:var(--vermilion); font-style:italic; font-size:13px; align-self:center">${h.cat}</div>
+      </a>
+    </li>`).join('') : `<li style="padding:24px; color:var(--ink-mute); text-align:center; font-style:italic">无匹配文章</li>`;
+});
+
+document.addEventListener('keydown', e => {
+  if((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); document.getElementById('searchModal').classList.add('open'); setTimeout(()=>searchInput.focus(),50)}
+  if(e.key==='Escape'){ document.getElementById('searchModal').classList.remove('open') }
+});
+</script>
+
+</body>
+</html>
