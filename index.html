@@ -338,6 +338,39 @@ section.section{
 }
 .about .bio p:first-of-type{ text-indent: 2em }   /* no drop cap */
 
+.about .portrait{
+  float: right;
+  width: 180px;
+  margin: 6px 0 18px 28px;
+  shape-outside: margin-box;
+}
+.about .portrait img{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  filter: grayscale(.15) contrast(.96);
+}
+.about .portrait figcaption{
+  margin-top: 10px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--ink-mute);
+  text-align: center;
+}
+@media (max-width: 600px){
+  .about .portrait{
+    float: none;
+    width: 60%;
+    max-width: 220px;
+    margin: 0 auto 24px;
+  }
+}
+
 .about .facts{
   margin: 56px auto 0;
   max-width: 32em;
@@ -1147,9 +1180,9 @@ body.tab-other .panel.section{ padding-top: 36px }
 <div class="shell">
   <!-- ============== TOP BAR ============== -->
   <header class="topbar">
-    <div class="meta">公明随笔 · MMXXVI</div>
+    <div class="meta">公明随笔</div>
     <div class="brandmark">公 明</div>
-    <div class="meta right">自 二〇一八 · 写至今</div>
+    <div class="meta right">自 二〇一八</div>
   </header>
 
   <!-- ============== NAV ============== -->
@@ -1157,61 +1190,17 @@ body.tab-other .panel.section{ padding-top: 36px }
     <ul>
       <li><a href="#about"     class="tab" data-tab="about"><span class="num">01</span>其人</a></li>
       <li><a href="#works"     class="tab" data-tab="works"><span class="num">02</span>文集</a></li>
-      <li><a href="#reading"   class="tab" data-tab="reading"><span class="num">03</span>选读</a></li>
-      <li><a href="#timeline"  class="tab" data-tab="timeline"><span class="num">04</span>年谱</a></li>
-      <li><a href="#subscribe" class="tab" data-tab="subscribe"><span class="num">05</span>关注</a></li>
+      <li><a href="#timeline"  class="tab" data-tab="timeline"><span class="num">03</span>年谱</a></li>
+      <li><a href="#subscribe" class="tab" data-tab="subscribe"><span class="num">04</span>关注</a></li>
     </ul>
     <button class="search-pill" onclick="document.getElementById('searchModal').classList.add('open'); setTimeout(()=>document.getElementById('searchInput').focus(),50)">
       搜文 · <kbd style="font-family:var(--serif-en);border:1px solid var(--rule);padding:1px 6px;font-size:11px;border-radius:3px">⌘K</kbd>
     </button>
   </nav>
 
-  <!-- ============== HERO ============== -->
-  <section class="hero">
-    <aside class="side-l">陕 北 · 横 山 · 黄 土 高 原 · 信 笔 而 书</aside>
+  <!-- ============== HERO (removed for visual parity across tabs) ============== -->
 
-    <div>
-      <h1 class="reveal">
-        以<span class="accent">公</span>之名<br>
-        言<span class="accent">明</span>之事
-        <em>Essays from the Loess Plateau · Notes by Gōng Míng</em>
-      </h1>
-
-      <p class="lead reveal">
-        公明，男，六十年代生，陕北横山人，教育工作者。
-        自二〇一八年于公众号「公明随笔」执笔，写故乡、写童年、写凡人琐事，
-        亦读史以鉴今。文风敦厚，白描见长，七年来累计百余篇。
-      </p>
-    </div>
-
-    <aside class="side-r">
-      Pen Name<br><b>公 明</b>
-      <div style="margin-top:32px">籍 贯<br><b>陕北 · 横山</b></div>
-      <div style="margin-top:32px">题 材<br><b>散文 · 随笔</b></div>
-    </aside>
-
-    <div class="stamp">公明</div>
-
-    <!-- 黄土山形 -->
-    <svg class="loess" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path fill="#a3631e" d="M0,80 Q150,30 300,60 T600,50 T900,70 T1200,40 L1200,120 L0,120 Z"/>
-      <path fill="#231a12" opacity=".5" d="M0,100 Q200,70 400,90 T800,80 T1200,95 L1200,120 L0,120 Z"/>
-    </svg>
-  </section>
-
-  <!-- ============== TICKER ============== -->
-  <div class="ticker">
-    <div class="ticker-track">
-      <span>新作 即将于 公众号「公明随笔」推送</span><span class="dot">✦</span>
-      <span>「以史为鉴」系列连载中 · 读史识人</span><span class="dot">✦</span>
-      <span>共 102 篇 · 累计十三万余字</span><span class="dot">✦</span>
-      <span>Essays from the Loess Plateau · Since 2018</span><span class="dot">✦</span>
-      <span>新作 即将于 公众号「公明随笔」推送</span><span class="dot">✦</span>
-      <span>「以史为鉴」系列连载中 · 读史识人</span><span class="dot">✦</span>
-      <span>共 102 篇 · 累计十三万余字</span><span class="dot">✦</span>
-      <span>Essays from the Loess Plateau · Since 2018</span><span class="dot">✦</span>
-    </div>
-  </div>
+  <!-- ============== TICKER (removed) ============== -->
 
   <!-- ============== ABOUT ============== -->
   <section class="section panel" data-panel="about" id="about">
@@ -1223,16 +1212,12 @@ body.tab-other .panel.section{ padding-top: 36px }
 
     <div class="about">
       <div class="bio">
+        <figure class="portrait reveal">
+          <img src="Profile.JPG" alt="公明 肖像"/>
+          <figcaption>Gōng Míng</figcaption>
+        </figure>
         <p class="reveal">
-          公明，男，六十年代生人，陕北榆林横山人。少时长于胡沟岔，硷畔窑前度童年；
-          看过电影队下乡，听过盲艺人说书，赶过县剧团的戏，背过秦王砭的传说。
-          中学考入横中，后于绥德求学，归乡后任教于响水中学，从此长期执鞭杏坛，
-          以教书为业，与师生、笔墨、课桌为伴，于白日的劳作之后，深夜执笔。
-        </p>
-        <p class="reveal">
-          自二〇一八年开设公众号「公明随笔」，写至今已七年。
-          文章多为散文、随笔，写故乡风物、童年记忆、凡人琐事，亦有读史札记。
-          不疾不徐，白描见长，敦厚而有烟火气。
+          公明，陕北横山人，教书一生，闲时执笔。
         </p>
       </div>
 
@@ -1298,30 +1283,7 @@ body.tab-other .panel.section{ padding-top: 36px }
   </section>
 
   <!-- ============== READING（节选） ============== -->
-  <section class="section panel" data-panel="reading" id="reading">
-    <div class="section-head">
-      <div class="num">III.</div>
-      <h2>选读 <small>Excerpts</small></h2>
-      <div class="meta-r">Two pieces to begin with</div>
-    </div>
-
-    <div class="reading">
-      <article class="reveal">
-        <h4>故乡</h4>
-        <div class="meta">VOL.I · 陕北风物 · 卷首</div>
-        <p>人们纷纷挤进了城市，把故乡抛弃在原地，像抛弃一件穿了几十年、千疮百孔的破棉袄一样。</p>
-        <p>每当上坟路过老家，我总要驻足抚摸那破败不堪的楼门院墙，腐朽空心的老柳树，瞪着怪眼的箭杆杨。我总要把丢弃在硷畔洼上的瓶瓶罐罐拾起，擦拭一番放回窑洞里，对着久已闲置的石碾、石磨发愣，脑海里浮现出童年的一幕幕情景。</p>
-        <p>……故乡，像母亲一样，用呆滞而混浊的目光，为一拨一拨的游子们送行。</p>
-      </article>
-
-      <article class="reveal">
-        <h4>陕北说书人</h4>
-        <div class="meta">VOL.I · 陕北风物</div>
-        <p>陕北说书，是颇具地方特色的一种说唱艺术。最早从事陕北说书的几乎都是盲人。所以农村人说话粗糙的，就把庄里来说书的直接称作：咱们庄来瞎子了。后来说书的人告诉我们，他们叫盲艺人宣传队。</p>
-        <p>他说到哀婉处，三弦的音调如泣如诉，女人们听得一把鼻涕一把泪。说到激烈处，三弦的音调如金戈铁马，孩子们听得满院子翻跟头。当他口里字正腔圆，三弦随之一字一顿时，老者们听得频频点头，说：人家这弦子，弹的会说话了。</p>
-      </article>
-    </div>
-  </section>
+  <section class="section panel" data-panel="reading" id="reading" style="display:none"></section>
 
   <!-- ============== TIMELINE ============== -->
   <section class="section panel" data-panel="timeline" id="timeline">
@@ -1397,8 +1359,8 @@ body.tab-other .panel.section{ padding-top: 36px }
       <ul>
         <li><a href="#about">其人</a></li>
         <li><a href="#works">文集</a></li>
-        <li><a href="#reading">选读</a></li>
         <li><a href="#timeline">年谱</a></li>
+        <li><a href="#subscribe">关注</a></li>
       </ul>
     </div>
     <div>
@@ -1728,7 +1690,7 @@ document.addEventListener('click', (e) => {
   if(!a) return;
   const id = a.getAttribute('href').slice(1);
   // Map known section ids to tabs:
-  const known = ['about','works','reading','timeline','subscribe'];
+  const known = ['about','works','timeline','subscribe'];
   if(known.includes(id)){
     e.preventDefault();
     showTab(id);
@@ -1738,7 +1700,7 @@ document.addEventListener('click', (e) => {
 // Initial tab from URL or default to 其人
 (function initTab(){
   const h = (location.hash || '').replace('#','');
-  const known = ['about','works','reading','timeline','subscribe'];
+  const known = ['about','works','timeline','subscribe'];
   showTab(known.includes(h) ? h : 'about');
   // Don't smooth-scroll on first load
   window.scrollTo({top: 0});
